@@ -1,0 +1,28 @@
+# vim:syntax=sh:
+
+world_prec = 1.0e-4          # Overall numerical precision (no default)
+world_unit = bohr            # Coordinates in bohr (default)
+world_origin = [0.0,0.0,0.0] # Gauge origin for electric moments (default)
+
+Molecule {
+  translate = true           # Translate CoM to [0,0,0] (default = false)
+$coords
+O       0.0000  0.0000  -0.1250
+H      -1.4375  0.0000   1.0250
+H       1.4375  0.0000   1.0250
+$end
+}
+
+Properties {
+  dipole_moment = true       # Compute dipole moment (default)
+  quadrupole_moment = true   # Compute quadrupole moment (default = false)
+}
+
+WaveFunction {
+  method = HF                # Wavefunction method (no default)
+}
+
+SCF {
+  orbital_thrs = 1.0e-3      # Set orbital convergence threshold (default = 10*world_prec)
+}
+
