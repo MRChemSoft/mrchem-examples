@@ -1,0 +1,23 @@
+# vim:syntax=sh:
+
+world_prec = 1.0e-6
+world_unit = bohr
+
+Molecule {
+$coords
+O       0.0000  0.0000  -0.1250
+H      -1.4375  0.0000   1.0250
+H       1.4375  0.0000   1.0250
+$end
+}
+
+WaveFunction {
+  method = PBE
+}
+
+SCF {
+  start_prec = 1.0e-3
+  energy_thrs = 1.0e-6
+  orbital_thrs = -1.0
+}
+
