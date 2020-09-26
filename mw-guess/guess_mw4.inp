@@ -1,0 +1,23 @@
+# vim:syntax=sh:
+
+world_prec = 1.0e-4               # Overall numerical precision (no default)
+world_unit = bohr                 # Coordinates in bohr (default)
+
+Molecule {
+$coords
+O       0.0000  0.0000  -0.1250
+H      -1.4375  0.0000   1.0250
+H       1.4375  0.0000   1.0250
+$end
+}
+
+WaveFunction {
+  method = LDA                    # Set wavefunction method (no default)
+}
+
+SCF {
+  guess_type = sad_dz             # Use SAD initial guess (default = sad_dz)
+  orbital_thrs = 1.0e-2           # Set orbital convergence threshold (default = 10*world_prec)
+  write_orbitals = true           # Write converged orbitals to file (default = false)
+  path_orbitals = "initial_guess" # Write orbitals to initial_guess dir (default = orbitals)
+}

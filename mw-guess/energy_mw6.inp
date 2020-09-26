@@ -1,0 +1,30 @@
+# vim:syntax=sh:
+
+world_prec = 1.0e-6                   # Overall numerical precision (no default)
+world_unit = bohr                     # Coordinates in bohr (default)
+
+Molecule {
+$coords
+O       0.0000  0.0000  -0.1250
+H      -1.4375  0.0000   1.0250
+H       1.4375  0.0000   1.0250
+$end
+}
+
+WaveFunction {
+  method = BLYP                       # Set wavefunction method (no default)
+}
+
+SCF {
+  guess_type = MW                     # Use MW initial guess (default = sad_dz)
+  guess_prec = 1.0e-4                 # Set guess precision (default = 1.0e-3)
+  start_prec = 1.0e-4                 # Set dynamic SCF precision (default = world_prec)
+  energy_thrs = 1.0e-6                # Set energy convergence threshold (default = -1.0)
+  orbital_thrs = -1.0                 # Unset orbital convergence threshold (default = 10*world_prec)
+}
+
+Files {
+  guess_phi_p = "initial_guess/phi_p" # File name for paired guess orbitals (default)
+  guess_phi_a = "initial_guess/phi_a" # File name for alpha guess orbitals (default)
+  guess_phi_b = "initial_guess/phi_b" # File name for beta guess orbitals (default)
+}
