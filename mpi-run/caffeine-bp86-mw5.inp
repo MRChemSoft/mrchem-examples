@@ -3,12 +3,6 @@
 world_prec = 1.0e-5
 world_unit = angstrom
 
-MPI {
-  bank_size = 0
-  share_nuclear_potential = true
-  share_coulomb_potential = true
-}
-
 Molecule {
   translate = true
 $coords
